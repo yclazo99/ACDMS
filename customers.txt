@@ -1,0 +1,20 @@
+John Smith~123 Main St, Orlando, 32801~4075551001~CarrierUnitA~2027-01-15~150.00~Maintenance~2026-09-10~85.00
+Sarah Johnson~456 Oak Ave, Longwood, 32750~4075551002~TraneX200~2027-02-20~200.50~Repair~2026-08-15~120.00
+Michael Brown~789 Pine Rd, Apopka, 32703~4075551003~LennoxPro~2027-03-10~95.75~Inspection~2026-07-22~60.00
+Emily Davis~321 Cedar Ln, Sanford, 32771~4075551004~GoodmanElite~2027-04-05~300.00~Tuneup~2026-10-01~110.00
+David Wilson~654 Maple Dr, Casselberry, 32707~4075551005~RheemPlus~2027-05-18~175.25~Cleaning~2026-06-18~75.00
+Jessica Taylor~987 Birch Ct, Winter Park, 32789~4075551006~YorkCool~2027-06-25~220.00~Maintenance~2026-05-20~95.00
+Christopher Moore~147 Elm St, Oviedo, 32765~4075551007~DaikinMax~2027-07-30~145.50~Repair~2026-04-12~100.00
+Ashley Anderson~258 Willow Way, Altamonte Springs, 32714~4075551008~BryantUnit~2027-08-12~189.99~Inspection~2026-03-11~50.00
+Matthew Thomas~369 Cypress Blvd, Lake Mary, 32746~4075551009~AmanaPro~2027-09-09~130.00~Cleaning~2026-02-15~40.00
+Amanda Jackson~741 Spruce Ave, Deltona, 32725~4075551010~TempstarX~2027-10-16~165.00~Tuneup~2026-01-10~65.00
+Joshua White~852 Palm Dr, Winter Springs, 32708~4075551011~AmericanStd~2027-11-21~280.00~Repair~2026-10-05~125.00
+Megan Harris~963 Magnolia Ct, Maitland, 32751~4075551012~CarrierInfinity~2027-12-08~115.00~Maintenance~2026-09-18~70.00
+Andrew Martin~159 Lakeview Rd, Orlando, 32810~4075551013~TraneXR~2027-12-20~250.00~Inspection~2026-08-01~80.00
+Lauren Thompson~357 Sunset Blvd, Sanford, 32773~4075551014~GoodmanGSX~2027-01-22~175.00~Cleaning~2026-07-15~55.00
+Daniel Garcia~753 River Rd, Longwood, 32779~4075551015~LennoxElite~2027-02-18~210.00~Tuneup~2026-06-05~90.00
+Olivia Martinez~951 Forest Dr, Apopka, 32712~4075551016~YorkLX~2027-03-28~185.00~Maintenance~2026-05-12~72.00
+Ryan Robinson~246 Hilltop Ln, Lake Mary, 32746~4075551017~RheemClassic~2027-04-19~240.00~Repair~2026-04-08~130.00
+Samantha Clark~135 Park Ave, Winter Park, 32792~4075551018~DaikinFit~2027-05-07~155.00~Inspection~2026-03-20~68.00
+Brandon Lewis~864 Garden St, Oviedo, 32766~4075551019~BryantEvolution~2027-06-14~190.00~Cleaning~2026-02-22~77.00
+Victoria Walker~579 Creek Rd, Casselberry, 32730~4075551020~AmanaASX~2027-07-11~225.00~Tuneup~2026-01-18~88.00

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ACDMS:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ACDMS_jar</output-path>
+    <root id="archive" name="ACDMS.jar">
+      <element id="module-output" name="ACDMS" />
+    </root>
+  </artifact>
+</component>
