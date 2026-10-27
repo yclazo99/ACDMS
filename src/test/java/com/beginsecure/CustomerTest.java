@@ -78,12 +78,11 @@ class CustomerTest {
         assertEquals(1, customer.getDaysSinceLastService());
     }
 
-    /*This test needs to be updated for daily change
     @Test
     void calculateDaysSinceLastService() {
         Customer customer = new Customer();
-        customer.setLastServiceDate(LocalDate.of(2026, 10, 10));
-        assertEquals(9, customer.calculateDaysSinceLastService());
+        customer.setLastServiceDate(LocalDate.now().minusDays(10));
+        assertEquals(10, customer.calculateDaysSinceLastService());
     }
-     */
+
 }

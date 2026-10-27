@@ -22,7 +22,7 @@ public class Customer {
      */
     @Override
     public String toString() {
-        return "Name: " + name +
+        return "\nName: " + name +
                 "\nAddress: " + address +
                 "\nPhone: " + phone +
                 "\nUnit Type: " + unitType +
@@ -31,7 +31,6 @@ public class Customer {
                 "\nLast Service: " + lastService +
                 "\nLast Service Date: " + lastServiceDate +
                 "\nLast Service Cost: $" + lastServiceCost +
-                "\nDays Since Last Service: " + daysSinceLastService +
                 "\n";
     }
 
@@ -65,7 +64,6 @@ public class Customer {
         this.lastService = lastService;
         this.lastServiceDate = lastServiceDate;
         this.lastServiceCost = lastServiceCost;
-        this.daysSinceLastService = this.calculateDaysSinceLastService();
     }
 
     //SETTERS---------------------------------------------------------------------------

@@ -41,6 +41,58 @@ public class DMS {
     }
 
     /*
+   ----------------------------------------------------------------------------------------------------------------
+   Name: addCustomerManually
+   Purpose: Creates and assigns new customer object based on arguments. Created for testing purposes.
+   Arguments: String name,
+           String address,
+           String phone,
+           String unitType,
+           LocalDate nextServiceDate,
+           double invoiceDue,
+           String lastService,
+           LocalDate lastServiceDate,
+           double lastServiceCost
+   Returns: A Customer object (customer).
+   Notes:The following values must be valid to be accepted:
+       Name: Cannot contain anything but letters.
+       Phone: must be a unique set of 10 integers.
+       NextServiceDate: Must be formated (yyyy-MM-dd) and must be a date in the future.
+       InvoiceDue: Must be a double and cannot be negative.
+       LastServiceDate: Must be formated (yyyy-MM-dd) and must be a date in the past.
+       LastServiceCost: Must be a double and cannot be negative.
+    */
+    public Customer addCustomerManually(
+            String name,
+            String address,
+            String phone,
+            String unitType,
+            LocalDate nextServiceDate,
+            double invoiceDue,
+            String lastService,
+            LocalDate lastServiceDate,
+            double lastServiceCost) {
+
+
+
+        Customer customer = new Customer(
+                name,
+                address,
+                phone,
+                unitType,
+                nextServiceDate,
+                invoiceDue,
+                lastService,
+                lastServiceDate,
+                lastServiceCost
+        );
+
+        System.out.println("Customer has been created!");
+
+        return customer;
+    }
+
+    /*
     ----------------------------------------------------------------------------------------------------------------
     Name: addCustomerManually
     Purpose: Guides the user through the manual addition of a customer object. Checks validation.
@@ -454,44 +506,82 @@ public class DMS {
         return customers;
     }
 
+    /*
+   --------------------------------------------------------------------------------------
+   Name: displayMenu
+   Purpose: Shows main menu and validates input
+   Arguments:
+   Returns: An integer representing a valid choice
+   Notes: Is called everytime at the beginning of the main method "while loop" unless choice = 6
+   Created specifically for required test case.
+    */
+    public int displayMenu(){
+        System.out.println("\n-------Main Menu--------");
+        System.out.println("1. View Customers");
+        System.out.println("2. Add Customer");
+        System.out.println("3. Remove Customer");
+        System.out.println("4. Edit Customer");
+        System.out.println("5. Check # of days since last service.");
+        System.out.println("6. Exit");
+
+        int choice = 0;
+
+        //Choice input validation-----------------------------------
+        do {
+
+            try {
+                System.out.println("Choice: ");
+                choice = Integer.parseInt(input.nextLine());
+
+                if (choice < 1 || choice > 6) {
+                    System.out.println("\nInvalid choice!");
+                }
+
+            } catch (NumberFormatException e) {
+                System.out.println("\nPlease enter a number.");
+            }
+
+        } while (choice < 1 || choice > 6);
+
+        return choice;
+    }
+
+    public int checkDaysSinceLastService(String phoneNumber) {
+        for (Customer customer : this.customers) {
+            if (customer.getPhone().equals(phoneNumber)) {
+                System.out.println("Customer found: " + customer.getName());
+
+                int days = customer.calculateDaysSinceLastService();
+
+                if (days < 1) {
+                    return 0;
+                }
+
+                return days;
+
+            }
+        }
+        return -1;
+    }
+
     public static void main(String[] args) {
         DMS dms = new DMS();
         Scanner input = new Scanner(System.in);
         String phoneNumber = "";
         int choice = 0;
+        int subChoice = 0;
 
         System.out.println("Welcome to AC DMS!");
 
-        while (choice != 5) {
-            System.out.println("-------Main Menu--------");
-            System.out.println("1. View Customers");
-            System.out.println("2. Add Customer");
-            System.out.println("3. Remove Customer");
-            System.out.println("4. Edit Customer");
-            System.out.println("5. Exit");
+        while (choice != 6) {
 
-            //Choice input validation-----------------------------------
-            do {
-
-                try {
-                    System.out.println("Choice: ");
-                    choice = Integer.parseInt(input.nextLine());
-
-                    if (choice < 1 || choice > 5) {
-                        System.out.println("Invalid choice!");
-                    }
-
-                } catch (NumberFormatException e) {
-                    System.out.println("Please enter a number.");
-                }
-
-            } while (choice < 1 || choice > 5);
+            choice = dms.displayMenu();
 
             //Handles choice logic and validation------------------------
             switch (choice) {
                 case 1:
                     if (dms.viewCustomers().isEmpty()) {
-                        System.out.println("No customers found!");
+                        System.out.println("\nNo customers found!");
                         break;
                     }
 
@@ -501,7 +591,7 @@ public class DMS {
                     break;
 
                 case 2:
-                    System.out.println("Would you like to add a new customer manually or with a text file?");
+                    System.out.println("\nWould you like to add a new customer manually or with a text file?");
                     System.out.println("1. Manually");
                     System.out.println("2. Text File");
 
@@ -509,19 +599,19 @@ public class DMS {
 
                         try {
                             System.out.println("Choice: ");
-                            choice = Integer.parseInt(input.nextLine());
+                            subChoice = Integer.parseInt(input.nextLine());
 
-                            if (choice < 1 || choice > 2) {
-                                System.out.println("Invalid choice!");
+                            if (subChoice < 1 || subChoice > 2) {
+                                System.out.println("\nInvalid choice!");
                             }
 
                         } catch (NumberFormatException e) {
-                            System.out.println("Please enter a number.");
+                            System.out.println("\nPlease enter a number.");
                         }
 
-                    } while (choice < 1 || choice > 2);
+                    } while (subChoice < 1 || subChoice > 2);
 
-                    switch (choice) {
+                    switch (subChoice) {
                         case 1:
                             dms.customers.add(dms.addCustomerManually());
                             break;
@@ -536,30 +626,44 @@ public class DMS {
                     break;
 
                 case 3:
-                    System.out.println("Enter phone number of customer you wish to remove: ");
+                    System.out.println("\nEnter phone number of customer you wish to remove: ");
                     phoneNumber = input.nextLine();
                     Customer removedCustomer = dms.removeCustomer(phoneNumber);
                     if (removedCustomer != null) {
-                        System.out.println("Customer removed successfully!");
+                        System.out.println("\nCustomer removed successfully!");
                         System.out.println(removedCustomer);
                     } else {
-                        System.out.println("Customer not removed!");
+                        System.out.println("\nNo customer removed!");
                     }
                     break;
 
                 case 4:
-                    System.out.println("Enter phone number of customer you wish to edit: ");
+                    System.out.println("\nEnter phone number of customer you wish to edit: ");
                     phoneNumber = input.nextLine();
                     Customer editedCustomer = dms.editCustomer(phoneNumber);
                     if (editedCustomer != null) {
-                        System.out.println("Customer was edited successfully!");
+                        System.out.println("\nCustomer was edited successfully!");
                         System.out.println(editedCustomer);
                     } else {
-                        System.out.println("Customer was not found!");
+                        System.out.println("\nCustomer was not found!");
                     }
                     break;
 
                 case 5:
+                    System.out.println("\nEnter phone number of customer you wish to check: ");
+                    phoneNumber = input.nextLine();
+                    int days = dms.checkDaysSinceLastService(phoneNumber);
+
+                    if (days== -1){
+                        System.out.println("\nCustomer not found!");
+                    } else{
+                        System.out.println("Days since last service: " + days);
+                    }
+
+
+                    break;
+
+                case 6:
                     System.out.println("Thank you for using AC DMS!");
                     break;
             }
